@@ -1,0 +1,114 @@
+\documentclass[center]{beamer}
+
+\usetheme[compress]{Singapore}
+
+% Do not show subsection markers in the headline 
+\setbeamertemplate{Singapore subsection in head/foot}{use=false}
+% Remove navigation symbols in the bottom of the slides
+\beamertemplatenavigationsymbolsempty 
+% \newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+% \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+
+\usepackage{marvosym}
+\usepackage{graphicx}
+\usepackage[backend      = biber,     
+            isbn         = false,     
+            doi          = false,     
+            url          = false,     
+            eprint       = false,    
+            style        = alphabetic,
+            maxcitenames = 1,         
+            maxbibnames  = 3,         
+            uniquelist   = false]{biblatex}
+\addbibresource{/home/bach/Documents/papers/BIB/references.bib}
+
+
+% Configure title, authors and contact 
+\title[Retention order prediction]{%
+    Liquid-Chromatography Retention Order Prediction for Metabolite Identification}
+    
+\author[\Letter: eric.bach@aalto.fi]{ % address for correspondence 
+    Eric Bach\,$^{\text{1,\Letter}}$, % 
+    Sandor Szedmak\,$^{\text{1}}$,    %
+    C\'eline Brouard\,$^{\text{1}}$,  %
+    Sebastian B\"ocker\,$^{\text{2}}$ %
+    and Juho Rousu\,$^{\text{1}}$}
+    
+\institute[]{%
+    $^{\text{1}}$Helsinki institute for Information Technology (HIIT), Department of Computer Science, Aalto University, Espoo, Finland\\
+    $^{\text{2}}$Chair for Bioinformatics, Friedrich-Schiller-University, Jena, Germany.}
+  \date{September 11, 2018}
+
+% Configure beamer footline
+\setbeamertemplate{footline}{%
+    \leavevmode%
+    \hbox{%
+        \hskip3pt
+        \begin{beamercolorbox}[wd=.69\paperwidth,ht=2.25ex,dp=1ex,left]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\inserttitle
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=.15\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\insertshortauthor
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=.15\paperwidth,ht=2.25ex,dp=1ex,right]{framenumber in head/foot}%
+            \insertframenumber{} / \inserttotalframenumber\hspace{7pt}
+        \end{beamercolorbox}
+  }%
+  \vskip0pt%
+}
+
+% \setbeamertemplate{headline}
+% {
+%     \leavevmode
+%     \begin{beamercolorbox}{section in head/foot}
+%     \vskip2pt\insertsectionnavigationhorizontal{\textwidth}{}{}\vskip2pt
+%     \end{beamercolorbox}
+% }
+
+\begin{document}
+
+% Title frame
+\frame{ \thispagestyle{empty} 
+    \titlepage 
+    % Insert logos
+    \includegraphics[scale=0.25]{images/aalto_logo.pdf}
+    \hfill
+    \includegraphics[scale=0.25]{images/hiit_logo.pdf}
+}
+
+% Motivation frame
+% \frame{ %\thispagestyle{empty} 
+%     \frametitle{Motivation / Background}
+% }
+
+% Table of content
+\frame{
+    \frametitle{Outline}
+    \tableofcontents
+}
+
+\section{Introduction}
+\input{content/introduction}
+
+\section[Proposed method]{Proposed method: Utilizing observed retention orders}
+\input{content/proposed_method}
+
+\section[RankSVM]{Ranking Support Vector Machine (RankSVM)}
+\input{content/ranksvm}
+
+\section[Data integration]{Integration of MS/MS scores \& retention orders}
+\input{content/shortest_path_score_integration}
+
+\section{Experiments}
+\input{content/experiments}
+
+% Summary frame
+\frame{
+    \frametitle{Summary}
+}
+
+% Include references  
+\printbibliography[heading=none]
+
+\end{document}
