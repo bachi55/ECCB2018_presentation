@@ -67,5 +67,72 @@
 }
 
 \frame{
-    \frametitle{Metabolite identification}
+    \frametitle{Train model with preferences from different systems}
+    \framesubtitle{Can pairwise predictor benefit from information of different systems?}
+
+\begin{block}{Compare performance of different training sets}
+\begin{itemize}
+    \item Single system, target data only: $\Pref(\sys)$
+    \item Multiple systems, \emph{no} target data: $\Pref\setminus\Pref(\sys)$
+    \item Multiple systems, all available data: $\Pref$
+    \item Varying percentage ???
+\end{itemize}
+\end{block}
+\begin{block}{Comparison method}
+\begin{itemize}
+    \item Support Vector Regression (SVR) trained on retention times directly \cite{Aicheler2015}.
+    \item In multiple system setting: Retention times are considered jointly.
+\end{itemize}
+\end{block}
+}
+
+\frame{
+    \frametitle{Train model with preferences from different systems}
+    \framesubtitle{Application setting: Training retention times only available from single target system.}
+    
+\begin{center}
+    \includegraphics[width=\textwidth]{images/pwacc_2_marked_4.pdf}
+\end{center}
+\vspace{-0.25cm}
+\begin{block}{Observations}
+\begin{itemize}
+    \item Increasing amount of training data improves prediction.
+    \item RankSVM and SVR perform equally.
+\end{itemize}
+\end{block}
+}
+
+\frame{
+    \frametitle{Train model with preferences from different systems}
+    \framesubtitle{Application Setting: Training retention times only available \emph{from not target} system.}
+    
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{images/pwacc_2_marked_2.pdf}
+\end{center}
+\vspace{-0.25cm}
+\begin{block}{Observations}
+\begin{itemize}
+    \item Performance of single system \emph{without} data from the target.
+    \item RankSVM outperforms SVR by considering retention \emph{orders}.
+\end{itemize}
+\end{block}
+}
+
+\frame{
+    \frametitle{Train model with preferences from different systems}
+    \framesubtitle{Application Setting: Training retention times from target \emph{and} others systems available.}
+    
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{images/pwacc_2_marked_3.pdf}
+\end{center}
+\vspace{-0.25cm}
+\begin{small}
+\begin{block}{Observations}
+\vspace{-0.15cm}
+\begin{itemize}
+    \item Considering target \emph{and} non-target systems' data outperforms single system.
+    \item RankSVM again outperforms SVR.
+\end{itemize}
+\end{block}
+\end{small}
 }
