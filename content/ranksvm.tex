@@ -79,3 +79,27 @@
 \end{equation}
 \end{block}
 }
+
+\frame{
+%     \frametitle{Compare binary and counting molecular fingerprints}
+    \frametitle{Molecules represented using MACCS dictionary fingerprints}
+
+\begin{figure}
+    \includegraphics[width=\textwidth]{images/fingerprint_example.pdf}
+\end{figure}
+\begin{block}{Kernels used for the feature embedding in RankSVM}
+\vspace{-0.25cm}
+\begin{small}
+\begin{itemize}
+    \item Binary: Tanimoto kernel \cite{Ralaivola2005}
+\begin{center}
+    $\kmol(m_i,m_j)=\frac{b(m_i)^T b(m_j)}{b(m_i)^T b(m_i)+b(m_j)^T b(m_j)-b(m_i)^T b(m_j)}$
+\end{center}
+    \item Count: MinMax kernel \cite{Ralaivola2005}
+\begin{center}
+    $\kmol(m_i,m_j)=\frac{\sum_{s=1}^{N_{sub}}\min(c_s(m_i),c_s(m_j))}{\sum_{s=1}^{N_{sub}}\max(c_s(m_i),c_s(m_j))}$
+\end{center}
+\end{itemize}
+\end{small}
+\end{block}
+}

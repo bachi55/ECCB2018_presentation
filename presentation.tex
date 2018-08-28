@@ -4,6 +4,7 @@
 
 % Do not show subsection markers in the headline 
 \setbeamertemplate{Singapore subsection in head/foot}{use=false}
+\setbeamercovered{transparent}
 % Remove navigation symbols in the bottom of the slides
 \beamertemplatenavigationsymbolsempty 
 % \newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
@@ -29,9 +30,6 @@
 \usepackage{mathtools}
 \mathtoolsset{showonlyrefs=true}
 \usepackage{booktabs}
-
-\theoremstyle{definition}
-\newtheorem{mydef}{Definition}[section]
 
 \newcommand{\ex}[1]{{\usebeamercolor[fg]{block title example} #1}}
 
@@ -109,18 +107,31 @@
 \section[Proposed method]{Proposed method: Utilizing observed retention orders}
 \input{content/proposed_method}
 
-\section[RankSVM]{Ranking Support Vector Machine (RankSVM)}
+\section[Retention order prediction]{Ranking Support Vector Machine for order prediction}
 \input{content/ranksvm}
 
-\section{Experiments: RankSVM}
+% \section{Experiments: Order prediction}s
 \input{content/experiments}
 
-\section[Data integration]{Integration of MS/MS scores \& retention orders}
+\section[Metabolite identification]{Integration of MS/MS scores \& predicted retention orders}
 \input{content/shortest_path_score_integration}
 
+% \section{Experiments: Metabolite identification}
+\input{content/experiments_metabolite_identification}
+
 % Summary frame
+\section{Summary}
 \frame{
     \frametitle{Summary}
+    
+% \begin{block}{Contribution}
+\begin{itemize}
+    \item Proposed a method predict retention order using RankSVM.
+    \item Prediction model can be trained on retention time data from different chromatographic systems
+    \item Proposed method to integrate predicted retention orders and MS/MS scores for metabolite identification in complex LC-MS setting
+    \item Metabolite identification accuracy can be improved using predicted retention orders.
+\end{itemize}
+% \end{block}
 }
 
 % Include references  

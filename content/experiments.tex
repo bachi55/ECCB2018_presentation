@@ -7,7 +7,7 @@
     \item 5 different reversed phase LC-systems (denoted with $\hat{S}$)
 \end{itemize}
 \end{block}
-\begin{block}{Evaluation measure and procedure}
+\begin{block}{Evaluation measure and protocol}
 \begin{itemize}
     \item Pairwise prediction accuracy for a target system $\sys\in\hat{S}$:
 \begin{equation}
@@ -16,30 +16,6 @@
     \item Accuracy accessed using repeated 10-fold cross-validation.
     \item no test molecular structure in the training set
 \end{itemize}
-\end{block}
-}
-
-\frame{
-    \frametitle{Compare binary and counting molecular fingerprints}
-    \framesubtitle{Encoding molecular structures using MACCS dictionary molecular fingerprints.}
-
-\begin{figure}
-    \includegraphics[width=\textwidth]{images/fingerprint_example.pdf}
-\end{figure}
-\begin{block}{Kernels used for the feature embedding in RankSVM}
-\vspace{-0.25cm}
-\begin{small}
-\begin{itemize}
-    \item Binary: Tanimoto kernel 
-\begin{center}
-    $\kmol(m_i,m_j)=\frac{b(m_i)^T b(m_j)}{b(m_i)^T b(m_i)+b(m_j)^T b(m_j)-b(m_i)^T b(m_j)}$
-\end{center}
-    \item Count: MinMax kernel 
-\begin{center}
-    $\kmol(m_i,m_j)=\frac{\sum_{s=1}^{N_{sub}}\min(c_s(m_i),c_s(m_j))}{\sum_{s=1}^{N_{sub}}\max(c_s(m_i),c_s(m_j))}$
-\end{center}
-\end{itemize}
-\end{small}
 \end{block}
 }
 
