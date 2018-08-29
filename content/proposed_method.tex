@@ -1,7 +1,26 @@
 \frame{
-    \frametitle{Predicting retention orders from different systems} 
+    \frametitle{Retention times (RTs) for metabolite identification} 
+    
+\begin{itemize}
+     \item State-of-the-art machine learning metabolite identification methods use \emph{only} MS/MS information \cite{Brouard2016,Duehrkop2015} 
+     \item Retention times are \emph{valuable} orthogonal information \cite{Ruttkies2016,Stanstrup2015,Aicheler2015} \hfill\ex{distinction of diastereoisomers}
+\end{itemize}
+
+\begin{alertblock}{Challenges utilizing RTs}
+\begin{enumerate}
+    \item Measurements are \emph{LC-system specific}. 
+    \item Public datasets are relatively \emph{small} and originate from \emph{heterogeneous systems}
+\end{enumerate}
+\end{alertblock}
 }
 
 \frame{
-    \frametitle{Integrating predicted retention orders and MSMS scores} 
+    \frametitle{Proposed method to tackle the challenges}
+    
+\begin{enumerate}
+    \item<1> \textbf{Predict the pairwise retention order} of molecular candidate structures using preference learning
+    \item<1>[$\circ$] Retention orders are largely preserved across LC-systems \cite{Stanstrup2015}.
+    \item<1>[$\circ$] Prediction model can be trained on \emph{multiple} retention time datasets arising from \emph{heterogeneous} LC-systems. 
+    \item<2> \textbf{Integrating predicted candidate retention orders and MS/MS based scores} to \emph{jointly} identify a set of metabolites.
+\end{enumerate}   
 }

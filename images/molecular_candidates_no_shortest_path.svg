@@ -25,14 +25,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1196"
-     inkscape:window-height="924"
+     inkscape:window-height="1873"
      id="namedview22288"
      showgrid="false"
-     inkscape:zoom="5.0857092"
-     inkscape:cx="656.9694"
-     inkscape:cy="534.55309"
+     inkscape:zoom="1.7980697"
+     inkscape:cx="960.66407"
+     inkscape:cy="644.68462"
      inkscape:window-x="1920"
-     inkscape:window-y="971"
+     inkscape:window-y="22"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg20126"
      showguides="false" />
@@ -3471,7 +3471,7 @@
        height="100%" />
   </g>
   <path
-     style="fill:#6cdd55;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-opacity:1;stroke-width:1.49999997;stroke-miterlimit:4;stroke-dasharray:none"
+     style="fill:#6cdd55;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-opacity:0;stroke-width:1.49999997;stroke-miterlimit:4;stroke-dasharray:none"
      d="m 845.55257,-222.56778 -63.73437,0 c -3.12891,0 -5.66797,2.53906 -5.66797,5.66797 l 0,12.39062 c 0,3.12891 2.53906,5.66797 5.66797,5.66797 l 63.73437,0 c 3.13281,0 5.67188,-2.53906 5.67188,-5.66797 l 0,-12.39062 c 0,-3.12891 -2.53907,-5.66797 -5.67188,-5.66797 z m 0,0"
      id="path21666"
      inkscape:connector-curvature="0" />
@@ -4170,17 +4170,6 @@
        inkscape:original-d="m 60.834911,97.51369 0,7.40833 12.800792,0"
        inkscape:connector-curvature="0" />
   </g>
-  <text
-     id="text24786"
-     y="-253.68774"
-     x="898.51782"
-     style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     xml:space="preserve"><tspan
-       style="font-size:10.00000095px;line-height:1.25"
-       y="-253.68774"
-       x="898.51782"
-       id="tspan24788"
-       sodipodi:role="line"> </tspan></text>
   <g
      id="g8217"
      transform="matrix(0.57596548,0,0,0.57596548,423.38614,-458.98855)">

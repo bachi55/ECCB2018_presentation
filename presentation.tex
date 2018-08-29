@@ -31,6 +31,9 @@
 \mathtoolsset{showonlyrefs=true}
 \usepackage{booktabs}
 
+\let\oldcite\cite
+\renewcommand{\cite}[1]{\textcolor{gray}{\oldcite{#1}}}
+
 \newcommand{\ex}[1]{{\usebeamercolor[fg]{block title example} #1}}
 
 
@@ -82,7 +85,7 @@
 \begin{document}
 
 % Title frame
-\frame{ \thispagestyle{empty} 
+\frame[noframenumbering]{ \thispagestyle{empty} 
     \titlepage 
     % Insert logos
     \includegraphics[scale=0.25]{images/aalto_logo.pdf}
@@ -96,12 +99,8 @@
 % }
 
 % Table of content
-\frame{
-    \frametitle{Outline}
-    \tableofcontents
-}
 
-\section{Introduction}
+\section[Metabolite Identification]{Metabolite Identification}
 \input{content/introduction}
 
 \section[Proposed method]{Proposed method: Utilizing observed retention orders}
@@ -113,7 +112,7 @@
 % \section{Experiments: Order prediction}s
 \input{content/experiments}
 
-\section[Metabolite identification]{Integration of MS/MS scores \& predicted retention orders}
+\section[Retention order \& MS/MS score integration]{Integration of MS/MS scores \& predicted retention orders}
 \input{content/shortest_path_score_integration}
 
 % \section{Experiments: Metabolite identification}

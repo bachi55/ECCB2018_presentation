@@ -1,32 +1,12 @@
-\frame{
-    \frametitle{``Classical'' MS/MS spectra based metabolite identification} 
-
-\begin{figure}[c]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/lcms_spectrum_complex_small_only_iokr.pdf}
-\end{figure}
-\vspace{-0.15cm}
-\begin{small}
-\begin{block}{Identification workflow}
-\vspace{-0.15cm}
-\begin{enumerate}
-    \item For each MS/MS spectra $x_i$ define a set of \emph{molecular candidate structures} $\{m_{i,1},m_{i,2},\ldots\}$.\hfill\ex{using the molecular mass}
-    \item Assign a ``MS/MS matching score'' $y_{i,j}$ to each candidate.\\\hfill\ex{Input-Ouput-Kernel-Regression\cite{Brouard2016}}
-    \item Higest scoring candidate $m_{i,j}$ is the identification for spectra $x_i$.
-\end{enumerate}
-\end{block}
-\end{small}
-}
-
-\frame{
-    \frametitle{\ex{``Classical'' MS/MS spectra based metabolite identification}}
-    
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=1.0\textwidth]{images/molecular_candidates_only_iokr.pdf}
-\end{figure}    
-}
-
+% \frame{
+%     \frametitle{\ex{``Classical'' MS/MS spectra based metabolite identification}}
+%     
+% \begin{figure}[t]
+%     \centering
+%     \includegraphics[width=1.0\textwidth]{images/molecular_candidates_only_iokr.pdf}
+% \end{figure}    
+% }
+% 
 
 \frame{
     \frametitle{Predicted retention orders for metabolite identification} 
@@ -55,13 +35,13 @@
 \only<1>{
 \begin{figure}[c]
     \centering
-    \includegraphics[width=1.0\textwidth]{images/molecular_candidates_no_shortest_path.pdf}
+    \includegraphics[width=0.9\textwidth]{images/molecular_candidates_no_shortest_path.pdf}
 \end{figure}
 }
 \only<2>{
 \begin{figure}[c]
     \centering
-    \includegraphics[width=1.0\textwidth]{images/molecular_candidates.pdf}
+    \includegraphics[width=0.9\textwidth]{images/molecular_candidates.pdf}
 \end{figure}
 }
 \vspace{-0.15cm}
