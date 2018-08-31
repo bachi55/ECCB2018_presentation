@@ -26,7 +26,7 @@
 }
 
 \frame{
-    \frametitle{Ranking Support Vector Machine for molecular structures}
+    \frametitle{Preference learning: Ranking Support Vector Machine}
     
     We want to learn a pairwise retention order prediction function:
 \vspace{-0.15cm} 
@@ -39,7 +39,7 @@
         \end{cases}
 \end{align}
 
-\visible<2>{
+\visible<1>{
 \vspace{-0.75cm}
 \begin{block}{Kernelized RankSVM prediction model}
 \vspace{-0.15cm}
@@ -49,8 +49,8 @@
 \vspace{-0.15cm}
 \begin{itemize}
     \item $\VEC{w}$ are the RankSVM \cite{Joachims2002,Kuo2014} model parameters
-    \item Similarity between molecular structures is encoded by a \emph{kernel function} $\kmol:\molspace\times\molspace\rightarrow\mathcal{R}$.
     \item $\phi:\molspace\rightarrow\Fmol$ feature map associated with $\kmol$ embedding the molecular structures into a feature space.
+    \item \emph{Kernel function} $\kmol:\molspace\times\molspace\rightarrow\mathcal{R}$ encodes similarity between molecular structures
 \end{itemize}
 \end{block}
 }
@@ -59,7 +59,7 @@
 \frame{
     \frametitle{Training the RankSVM for retention order prediction}
     
-    We optimize $\VEC{w}$ considering the pairwise preferences $\Pref$ from different chromatographic systems:
+    We optimize $\VEC{w}$ considering the pairwise preferences $\Pref$ from (possibly) different chromatographic systems:
 \begin{align}
     \underset{\VEC{w},\VEC{\xi}}{\min} &\quad \frac{1}{2}\VEC{w}^T\VEC{w} + C\sum_{(i,j)\in  \Pref}\xi_{ij} \\
     s.t. &\quad\VEC{w}^T(\phi(\mol_j)-\phi(\mol_i))\geq 1-\xi_{ij}, \forall(i,j)\in  \Pref\label{prob:rankSVM-primal}\\
@@ -71,29 +71,5 @@
 \begin{equation}
     \VEC{w}^T\phi(\mol_i)<\VEC{w}^T\phi(\mol_j),\,\text{if}\,(i,j)\in  \Pref 
 \end{equation}
-\end{block}
-}
-
-\frame{
-%     \frametitle{Compare binary and counting molecular fingerprints}
-    \frametitle{Molecules represented using MACCS dictionary fingerprints}
-
-\begin{figure}
-    \includegraphics[width=\textwidth]{images/fingerprint_example.pdf}
-\end{figure}
-\begin{block}{Kernels used for the feature embedding in RankSVM}
-\vspace{-0.25cm}
-% \begin{small}
-\begin{itemize}
-    \item Binary: Tanimoto kernel \cite{Ralaivola2005}
-\begin{center}
-    $\kmol(m_i,m_j)=\frac{|b(m_i)\cap b(m_j)|}{|b(m_i)\cup b(m_j)|}$%\frac{b(m_i)^T b(m_j)}{b(m_i)^T b(m_i)+b(m_j)^T b(m_j)-b(m_i)^T b(m_j)}$
-\end{center}
-    \item Count: MinMax kernel \cite{Ralaivola2005}
-\begin{center}
-    $\kmol(m_i,m_j)=\frac{\sum_{s=1}^{N_{sub}}\min(c_s(m_i),c_s(m_j))}{\sum_{s=1}^{N_{sub}}\max(c_s(m_i),c_s(m_j))}$
-\end{center}
-\end{itemize}
-% \end{small}
 \end{block}
 }

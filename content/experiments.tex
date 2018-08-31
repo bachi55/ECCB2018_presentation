@@ -5,6 +5,7 @@
 \begin{itemize}
     \item 1098 retention times of 946 unique molecular structures
     \item 5 different reversed phase LC-systems (denoted with $\hat{S}$)
+    \item We use counting MACCS dictionary fingerprints with MinMax-Kernel \cite{Ralaivola2005}.
 \end{itemize}
 \end{block}
 \begin{block}{Evaluation measure and protocol}
@@ -19,28 +20,7 @@
 \end{block}
 }
 
-\frame{ 
-    \frametitle{Compare binary and counting molecular fingerprints}
-%     \framesubtitle{Encoding molecular structures using MACCS dictionary molecular fingerprints.}
 
-\begin{itemize}
-    \item Pairwise prediction accuracy ($\pm 2\sigma$) for different target systems
-    \item RankSVM models trained using single system $\Pref(\sys)$.
-\end{itemize}
-
-\begin{table}[!t]
-\begin{tabular}{@{}lcc@{}}
-    \toprule 
-    Target system $\sys$ & Binary MACCS & Counting MACCS \\\midrule
-    Eawag\_XBridgeC18 & $0.796 (\pm 0.015)$ & $\mathbf{0.844 (\pm 0.011)}$ \\
-    FEM\_long         & $0.882 (\pm 0.016)$ & $\mathbf{0.905 (\pm 0.015)}$ \\
-    RIKEN             & $0.826 (\pm 0.024)$ & $\mathbf{0.848 (\pm 0.017)}$ \\
-    UFZ\_Phenomenex   & $0.790 (\pm 0.027)$ & $\mathbf{0.802 (\pm 0.017)}$ \\
-    LIFE\_old         & $0.842 (\pm 0.050)$ & $\mathbf{0.862 (\pm 0.035)}$ \\
-    \bottomrule
-\end{tabular}
-\end{table} 
-}
 
 \frame{
     \frametitle{Train model with preferences from different systems}
@@ -51,13 +31,14 @@
     \item Single system, target data only: $\Pref(\sys)$
     \item Multiple systems, \emph{no} target data: $\Pref\setminus\Pref(\sys)$
     \item Multiple systems, all available data: $\Pref$
-    \item Varying percentage ???
+    \item Varying percentage of target system molecules used for training
 \end{itemize}
+\vspace{-0.25cm}
 \end{block}
 \begin{block}{Comparison method}
 \begin{itemize}
     \item Support Vector Regression (SVR) trained on retention times directly \cite{Aicheler2015}.
-    \item In multiple system setting: Retention times are considered jointly.
+    \item Multiple systems: Retention times are considered jointly.
 \end{itemize}
 \end{block}
 }
