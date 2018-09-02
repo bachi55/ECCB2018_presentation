@@ -1,1 +1,12 @@
 .kile
+*.aux
+*.bcf
+*.bbl
+*.log
+*.nav
+*.out
+*.snm
+*.run.xml
+*.synctex.gz
+*.toc
+*.blg
