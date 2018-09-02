@@ -51,7 +51,7 @@
 \institute[]{%
     $^{\text{1}}$Helsinki institute for Information Technology (HIIT), Department of Computer Science, Aalto University, Espoo, Finland\\
     $^{\text{2}}$Chair for Bioinformatics, Friedrich-Schiller-University, Jena, Germany.}
-  \date{September 11, 2018}
+  \date{ECCB conference in Athens: September 11, 2018}
 
 % Configure beamer footline
 \setbeamertemplate{footline}{%
@@ -124,13 +124,29 @@
     \frametitle{Summary}
     
 % \begin{block}{Contribution}
+\begin{small}
 \begin{itemize}
-    \item Proposed a method predict retention order using RankSVM.
-    \item Prediction model can be trained on retention time data from different chromatographic systems
-    \item Proposed method to integrate predicted retention orders and MS/MS scores for metabolite identification in complex LC-MS setting  
+    \item Proposed a method for predicting liquid chromatographic orders using RankSVM.
+    \item Prediction model can be trained on retention time data from different chromatographic systems.
+    \item Proposed method to integrate predicted retention orders and MS/MS scores for metabolite identification in LC-MS setting  
     \item Metabolite identification accuracy can be improved using predicted retention orders.
 \end{itemize}
-% \end{block}
+\end{small}
+\vspace{-0.5cm}
+\begin{footnotesize}
+\begin{columns}[t]
+\column{.49\textwidth}
+\begin{block}{Acknowledgement}
+This work has been supported by Academy of Finland and the Aalto Science-IT infrastructure. 
+\\
+Travel fellowship was granted from ECCB with support of the ISCB society.
+\end{block}
+\column{.49\textwidth}
+\begin{block}{Source code available}
+\url{https://version.aalto.fi/gitlab/bache1/retention_order_prediction}
+\end{block}
+\end{columns}
+\end{footnotesize}
 }
 
 \begin{appendix}
