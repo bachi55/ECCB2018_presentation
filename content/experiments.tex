@@ -1,11 +1,20 @@
 \frame{
     \frametitle{Evaluating retention order prediction}
-    
-\begin{block}{Dataset}
+
+% \begin{small}
+
+\begin{block}{Dataset and molecule representation}
 \begin{itemize}
     \item 1098 retention times of 946 unique molecular structures
     \item 5 different reversed phase LC-systems (denoted with $\hat{S}$)
-    \item We use counting MACCS dictionary fingerprints with MinMax-Kernel \cite{Ralaivola2005}.
+%     \item We use counting MACCS dictionary fingerprints with MinMax-Kernel \cite{Ralaivola2005}.
+    \item Molecules represented using counting MACCS fingerprints:
+    
+\begin{center}
+\includegraphics[scale=0.6]{images/count_fingerprints_example.pdf}
+\end{center}
+\vspace{-0.5cm}    
+    %with MinMax-Kernel \cite{Ralaivola2005}.
 \end{itemize}
 \end{block}
 \begin{block}{Evaluation measure and protocol}
@@ -14,10 +23,12 @@
 \begin{equation}
     Acc(s)\equiv\frac{|\{(i,j)\in\Pref(s)\,|\,\VEC{w}^T\phi(\mol_i)<\VEC{w}^T\phi(\mol_j)\}|}{\Pref(s)}
 \end{equation}
+\vspace{-0.5cm}
     \item Accuracy accessed using repeated 10-fold cross-validation.
-    \item no test molecular structure in the training set
+%     \item no test molecular structure in the training set
 \end{itemize}
 \end{block}
+% \end{small}
 }
 
 
@@ -48,7 +59,7 @@
     \framesubtitle{Application setting: Training retention times only available from single target system.}
     
 \begin{center}
-    \includegraphics[width=\textwidth]{images/pwacc_2_marked_4.pdf}
+    \includegraphics[width=0.9\textwidth]{images/pwacc_2_only_single_system.pdf}
 \end{center}
 \vspace{-0.25cm}
 \begin{block}{Observations}
@@ -64,23 +75,23 @@
     \framesubtitle{Application Setting: Training retention times only available \emph{from not target} system.}
     
 \begin{center}
-    \includegraphics[width=0.9\textwidth]{images/pwacc_2_marked_2.pdf}
+    \includegraphics[width=0.9\textwidth]{images/pwacc_2_multiple_system_1.pdf}
 \end{center}
 \vspace{-0.25cm}
 \begin{block}{Observations}
 \begin{itemize}
-    \item Performance of single system \emph{without} data from the target.
+    \item Performance of single system \emph{without} data from the target. 
     \item RankSVM outperforms SVR by considering retention \emph{orders}.
 \end{itemize}
 \end{block}
 }
-
+ 
 \frame{
-    \frametitle{Train model with preferences from different systems}
+    \frametitle{Train model with preferences from different systems}  
     \framesubtitle{Application Setting: Training retention times from target \emph{and} others systems available.}
     
 \begin{center}
-    \includegraphics[width=0.9\textwidth]{images/pwacc_2_marked_3.pdf}
+    \includegraphics[width=0.9\textwidth]{images/pwacc_2_multiple_system_2.pdf}
 \end{center}
 \vspace{-0.25cm}
 \begin{small}

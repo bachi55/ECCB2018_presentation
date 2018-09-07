@@ -3,6 +3,7 @@
     
 \begin{block}{Notation}
 \begin{itemize}
+%     \item $\mol_i$ is representation of a molecules from the molecular space 
     \item Molecule $\mol_i$ from the molecular space $\molspace$
     \item $t_i\in\rettimespace$ its retention time
     \item $\sys_i\in\sysspace$ chromatographic system it has been measured with
@@ -26,22 +27,32 @@
 }
 
 \frame{
-    \frametitle{Preference learning: Ranking Support Vector Machine}
+    \frametitle{Preference learning: {\bf Rank}ing {\bf S}upport {\bf V}ector {\bf M}achine}
     
     We want to learn a pairwise retention order prediction function:
-\vspace{-0.15cm} 
+\vspace{-0.5cm} 
+% \begin{align}
+%     f(\mol_i = \includegraphics[scale=1.2]{images/mol_i.pdf},\mol_j = \includegraphics[scale=1.2]{images/mol_j.pdf} ) 
+% %         &= \sgn(\VEC{w}^T(\phi(\mol_j= \includegraphics[scale=1.2]{images/mol_j.pdf})-\phi(\mol_i= \includegraphics[scale=1.2]{images/mol_i.pdf})))\\
+%         &= \begin{cases}
+%             1  & \mol_i = \includegraphics[scale=1.2]{images/mol_i.pdf} \text{ elutes before } \mol_j = \includegraphics[scale=1.2]{images/mol_j.pdf}\\
+%             -1 & \text{otherwise}
+%         \end{cases}
+% \end{align}
+
 \begin{align}
-    f(\mol_i = \includegraphics[scale=1.2]{images/mol_i.pdf},\mol_j = \includegraphics[scale=1.2]{images/mol_j.pdf} ) 
+    f(\mol_i,\mol_j) 
 %         &= \sgn(\VEC{w}^T(\phi(\mol_j= \includegraphics[scale=1.2]{images/mol_j.pdf})-\phi(\mol_i= \includegraphics[scale=1.2]{images/mol_i.pdf})))\\
         &= \begin{cases}
-            1  & \mol_i = \includegraphics[scale=1.2]{images/mol_i.pdf} \text{ elutes before } \mol_j = \includegraphics[scale=1.2]{images/mol_j.pdf}\\
+            1  & \mol_i \text{ elutes before } \mol_j \\
             -1 & \text{otherwise}
         \end{cases}
 \end{align}
 
+
 \visible<1>{
-\vspace{-0.75cm}
-\begin{block}{Kernelized RankSVM prediction model}
+\vspace{-0.25cm}
+\begin{block}{RankSVM prediction model}
 \vspace{-0.15cm}
 \begin{equation}
     f(\mol_i,\mol_j) = \sgn(\VEC{w}^T(\phi(\mol_j)-\phi(\mol_i)))
@@ -49,8 +60,11 @@
 \vspace{-0.15cm}
 \begin{itemize}
     \item $\VEC{w}$ are the RankSVM \cite{Joachims2002,Kuo2014} model parameters
-    \item $\phi:\molspace\rightarrow\Fmol$ feature map associated with $\kmol$ embedding the molecular structures into a feature space.
-    \item \emph{Kernel function} $\kmol:\molspace\times\molspace\rightarrow\mathcal{R}$ encodes similarity between molecular structures
+    \item $\phi:\molspace\rightarrow\Fmol$ function to embed the \emph{representation} of the molecular structure $\mol_i$ into a feature space.
+    \item Molecular representations in the following denoted with $\mol_i$. 
+    \item \ex{Molecular graphs \includegraphics[scale=1.2]{images/mol_i.pdf}, molecular fingerprints} 
+%     \item $\phi:\molspace\rightarrow\Fmol$ feature map associated with $\kmol$ embedding the molecular structures into a feature space.
+%     \item \emph{Kernel function} $\kmol:\molspace\times\molspace\rightarrow\mathcal{R}$ encodes similarity between molecular structures
 \end{itemize}
 \end{block}
 }
@@ -58,8 +72,11 @@
 
 \frame{
     \frametitle{Training the RankSVM for retention order prediction}
+    \framesubtitle{Optimizing $\VEC{w}$ considering the pairwise preferences $\Pref$ from different systems.}
     
-    We optimize $\VEC{w}$ considering the pairwise preferences $\Pref$ from (possibly) different chromatographic systems:
+%     We optimize $\VEC{w}$ considering the pairwise preferences $\Pref$ from (possibly) different chromatographic systems:
+%     We optimize $\VEC{w}$ considering the pairwise preferences $\Pref$ from (possibly) different chromatographic systems:
+\vspace{-0.65cm}
 \begin{align}
     \underset{\VEC{w},\VEC{\xi}}{\min} &\quad \frac{1}{2}\VEC{w}^T\VEC{w} + C\sum_{(i,j)\in  \Pref}\xi_{ij} \\
     s.t. &\quad\VEC{w}^T(\phi(\mol_j)-\phi(\mol_i))\geq 1-\xi_{ij}, \forall(i,j)\in  \Pref\label{prob:rankSVM-primal}\\
@@ -67,9 +84,20 @@
 \end{align}
     with $C>0$ being the regularization parameter.
 
+\vspace{0.15cm}
 \begin{block}{Learned model}
+\vspace{-0.5cm}
+\begin{columns}
+\column{0.59\textwidth}
 \begin{equation}
     \VEC{w}^T\phi(\mol_i)<\VEC{w}^T\phi(\mol_j),\,\text{if}\,(i,j)\in  \Pref 
 \end{equation}
+\column{0.39\textwidth}
+% \begin{figure}
+%     \centering
+    \includegraphics[scale=0.6]{images/ranksvm_projection.pdf}
+% \end{figure}
+
+\end{columns}
 \end{block}
 }
