@@ -100,11 +100,9 @@
 
 % Table of content
 
-\section[Metabolite Identification]{Metabolite Identification}
-\input{content/introduction}
 
-\section[Proposed method]{Proposed method: Utilizing observed retention orders}
-\input{content/proposed_method}
+\section[LC \& Proposed method]{Liquid chromatography}
+\input{content/proposed_method}  
 
 \section[Retention order prediction]{Ranking Support Vector Machine for order prediction}
 \input{content/ranksvm}
@@ -112,16 +110,19 @@
 % \section{Experiments: Order prediction}s
 \input{content/experiments}
 
-\section[Retention order \& MS/MS score integration]{Integration of MS/MS scores \& predicted retention orders}
+\section[Metabolite Identification]{Metabolite Identification}
+\input{content/introduction}  
+
+\section[Combine Retention order \& MS/MS score]{Integration of MS/MS scores \& predicted retention orders}
 \input{content/shortest_path_score_integration}
 
 % \section{Experiments: Metabolite identification}
 \input{content/experiments_metabolite_identification}
 
 % Summary frame
-\section{Summary}
+\section[$\Sigma$]{Summary}
 \frame{
-    \frametitle{Summary}
+    \frametitle{Summary}  
     
 % \begin{block}{Contribution}
 \begin{small}
@@ -142,9 +143,13 @@ This work has been supported by Academy of Finland and the Aalto Science-IT infr
 Travel fellowship was granted from ECCB with support of the ISCB society.
 \end{block}
 \column{.49\textwidth}
+\begin{alertblock}{Visit the poster at 18:30!}
+ID: P\_Da080
+\end{alertblock}
 \begin{block}{Source code available}
 \url{https://version.aalto.fi/gitlab/bache1/retention_order_prediction}
 \end{block}
+% \vspace{-0.15cm}
 \end{columns}
 \end{footnotesize}
 }

@@ -10,7 +10,7 @@
 
 \frame{
     \frametitle{Predicted retention orders for metabolite identification} 
-    \framesubtitle{Exploit observed retention order in complex LC-MS experiment}
+%     \framesubtitle{Exploit observed retention order in complex LC-MS experiment}
     
 \begin{figure}[t]
     \centering
@@ -22,7 +22,15 @@
 \vspace{-0.15cm}
 \begin{enumerate}
     \item execute 1. (query candidates) and 2. (predict matching scores)
-    \item Predict retention orders between all candidates $m_{i,j}$ and $m_{i+1,s}$ of MS/MS spectra of consecutively eluting molecules. \hfill\ex{$x_1$ and $x_2$}
+    \item Construct a layered graph:
+\begin{itemize}
+    \item Nodes: Molecular candidate structures $m_{i,j}$
+    \item Edges: Encode matching scores and predicted retention orders   
+\end{itemize}
+
+    
+%     where the nodes are molecular candidates and the edges encode the MS/MS matching scores as well as the predicted retention order.
+%     \item Predict retention orders between all candidates $m_{i,j}$ and $m_{i+1,s}$ of MS/MS spectra of consecutively eluting molecules. \hfill\ex{$x_1$ and $x_2$}
     \item Find the \emph{overall} most consistent metabolite identification using the shorest path algorithm.
 \end{enumerate}
 \end{block}

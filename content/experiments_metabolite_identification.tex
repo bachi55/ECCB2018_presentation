@@ -5,14 +5,15 @@
 \begin{itemize}
     \item 342 reversed phase LC-retention times
     \item[$\circ$] for 120 MS/MS spectra available $\rightarrow$ (MS/MS, RT)-tuple
-    \item[$\circ$] remaning 222 RTs are used for RankSVM training ($\sys_{Impact}$)
-    \item Additionally we use the 5 datasets $\hat{S}$ of the previous experiments for RankSVM training
+    \item[$\circ$] remaning 222 RTs are used for RankSVM training (\emph{target})
+    \item 5 datasets (\emph{others}) of previous experiments also used for RankSVM training
 \end{itemize}
 \end{block}
+\vspace{-0.25cm}   
 \begin{block}{Evaluation measure and protocol}
 \begin{itemize}
     \item randomly sample 1000 times 80 (MS/MS, RT)-tuples
-    \item We construct the graph containing the candidates run the shortest path algorithm.
+    \item Construction of the graph containing the candidates to run the shortest path algorithm.
     \item Percentage of correct identifications for different values of $D$
     \item Comparison to baseline performance when $D=0$
 \end{itemize}
